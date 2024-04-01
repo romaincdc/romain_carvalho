@@ -80,7 +80,8 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: Romain_Carvalho_production
-  username: Romain_Carvalho
-  password: <%= ENV["ROMAIN_CARVALHO_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  database: romain_carvalho
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: romain_carvalho_user
+  password: <%= ENV['DATABASE_PASSWORD'] %>
