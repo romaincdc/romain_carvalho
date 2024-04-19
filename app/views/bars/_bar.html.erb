@@ -1,0 +1,29 @@
+<div id="<%= dom_id bar %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= bar.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Adress:</strong>
+    <%= bar.adress %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">City:</strong>
+    <%= bar.city %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Cocktails associés :</strong></p>
+    <ul>
+      <% bar.cocktails.each do |cocktail| %>
+      <li><%= cocktail.name %></li>
+  <% end %>
+    </ul>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this bar", bar, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this bar", edit_bar_path(bar), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
